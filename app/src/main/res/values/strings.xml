@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">SPYPARK_ADMIN</string>
+    <string name="todo">TODO</string>
+    <string name="your_no_1_parking_assistance">Your no.1 parking assistance</string>
 </resources>
