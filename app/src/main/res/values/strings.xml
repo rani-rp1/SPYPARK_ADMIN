@@ -8,14 +8,5 @@
     <string name="register">Register</string>
     <string name="dont_have_account">Don\'t have Account?</string>
     <string name="email">Email</string>
-    <string name="todo1">TODO</string>
-    <string name="name">Name</string>
-    <string name="todo2">TODO</string>
-    <string name="phone">Phone</string>
-    <string name="email2">Email</string>
-    <string name="password1">Password</string>
-    <string name="or">OR</string>
-    <string name="sign_up">Sign UP</string>
-    <string name="have_an_account">Have an Account?</string>
-    <string name="login1">Login</string>
+
 </resources>
