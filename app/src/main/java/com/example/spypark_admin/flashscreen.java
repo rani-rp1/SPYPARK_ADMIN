@@ -15,7 +15,7 @@ public class flashscreen extends AppCompatActivity {
         setContentView(R.layout.activity_flashscreen);
 
         h.postDelayed(() -> {
-            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            Intent intent = new Intent(getApplicationContext(),login.class);
             startActivity(intent);
             finish();
         }, 2000);
