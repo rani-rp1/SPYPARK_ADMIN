@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".register"
-    android:background="@drawable/rectangle_rightup">
+    android:background="@drawable/circleshapered">
 
     <ScrollView
         android:layout_width="match_parent"
