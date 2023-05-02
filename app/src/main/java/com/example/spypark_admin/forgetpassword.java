@@ -45,7 +45,7 @@ public class forgetpassword extends AppCompatActivity {
         mAuth.sendPasswordResetEmail(email).addOnCompleteListener(task -> {
             if(task.isSuccessful()){
                 Toast.makeText(forgetpassword.this, "Please Check your Email", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                Intent intent = new Intent(getApplicationContext(), login.class);
                 startActivity(intent);
             }
             else{
