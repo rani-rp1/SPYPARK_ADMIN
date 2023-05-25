@@ -1,8 +1,8 @@
 package com.example.spypark_admin;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.renderscript.Double3;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -31,16 +31,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
     }
+    @SuppressLint("NonConstantResourceId")
     @Override
     public void onClick(View V) {
         Intent i;
-        switch (V.getId()){
-            case R.id.d1: i = new Intent(this, d1.class);startActivity(i); break;
-            case R.id.d2: i = new Intent(this, d2.class);startActivity(i); break;
-            case R.id.d3: i = new Intent(this, d3.class);startActivity(i); break;
-            case R.id.d4: i = new Intent(this, d4.class);startActivity(i); break;
-
-
+        int id = V.getId();
+        if (id == R.id.d1) {
+            i = new Intent(this, d1.class);
+            startActivity(i);
+        } else if (id == R.id.d2) {
+            i = new Intent(this, d2.class);
+            startActivity(i);
+        } else if (id == R.id.d3) {
+            i = new Intent(this, d3.class);
+            startActivity(i);
+        } else if (id == R.id.d4) {
+            i = new Intent(this, d4.class);
+            startActivity(i);
         }
     }
 
