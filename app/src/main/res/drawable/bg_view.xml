@@ -4,7 +4,7 @@
     <corners android:bottomLeftRadius="75dp"
         android:bottomRightRadius="75dp"/>
 
-    <solid android:color="@color/purple_700" >
+    <solid android:color="#2645EC" >
 
     </solid>
 
