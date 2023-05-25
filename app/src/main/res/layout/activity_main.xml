@@ -24,6 +24,7 @@
         android:layout_below="@+id/top_view" >
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/d1"
             android:layout_width="150dp"
             android:layout_height="150dp"
             app:cardCornerRadius="30dp"
@@ -59,6 +60,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/d2"
             android:layout_width="150dp"
             android:layout_height="150dp"
             app:cardCornerRadius="30dp"
@@ -94,6 +96,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/d3"
             android:layout_width="150dp"
             android:layout_height="150dp"
             app:cardCornerRadius="30dp"
@@ -128,6 +131,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/d4"
             android:layout_width="150dp"
             android:layout_height="150dp"
             app:cardCornerRadius="30dp"

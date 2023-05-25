@@ -17,6 +17,18 @@
         android:theme="@style/Theme.SPYPARK_ADMIN"
         tools:targetApi="31">
         <activity
+            android:name=".d4"
+            android:exported="false" />
+        <activity
+            android:name=".d3"
+            android:exported="false" />
+        <activity
+            android:name=".d2"
+            android:exported="false" />
+        <activity
+            android:name=".d1"
+            android:exported="false" />
+        <activity
             android:name=".register"
             android:exported="false" />
         <activity
