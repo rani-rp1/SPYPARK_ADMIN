@@ -12,11 +12,16 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.spypark_admin.databinding.ActivityMainBinding;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
 
@@ -72,17 +77,22 @@ public class register extends AppCompatActivity {
                 return;
             }
 
-            mAuth.createUserWithEmailAndPassword(email,password)
-                    .addOnCompleteListener(task -> {
-                        progressBar.setVisibility(View.GONE);
-                        if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            FirebaseUser user = mAuth.getCurrentUser();
-                            Toast.makeText(register.this, "User Registered.",Toast.LENGTH_SHORT).show();
-                            users users = new users (name, email, phone, password);
-                            db = FirebaseDatabase.getInstance();
-                            reference = db.getReference("Users");
-                            reference.child(name).setValue(users).addOnCompleteListener(task1 -> {
+            mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NotNull Task<AuthResult> task) {
+                    progressBar.setVisibility(View.GONE);
+                    if (task.isSuccessful()) {
+                        // Sign in success, update UI with the signed-in user's information
+                        FirebaseUser user = mAuth.getCurrentUser();
+                        Toast.makeText(register.this, "User Registered.",Toast.LENGTH_SHORT).show();
+                        users users = new users(name, email, phone, password);
+                        db = FirebaseDatabase.getInstance();
+                        reference = db.getReference("Users");
+                        reference.child(name).setValue(users).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(Task<Void> task) {
+//                                SharedPreferences.Editor editor = sharedPreferences.edit();
+//                                editor.putString(userName, name);
                                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                                 startActivity(intent);
                                 finish();
@@ -91,15 +101,17 @@ public class register extends AppCompatActivity {
                                 editTextPhone.setText("");
                                 editTextPassword.setText("");
 
-                            });
+                            }
+                        });
 
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            Toast.makeText(register.this, "Authentication failed.",
-                                    Toast.LENGTH_SHORT).show();
-                        }
-                    });
-        });
+                    } else {
+                        // If sign in fails, display a message to the user.
+                        Toast.makeText(register.this, "Authentication failed.",
+                                Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+    });
         buttonLogin.setOnClickListener(view -> {
             Intent intent = new Intent(getApplicationContext(), login.class);
             startActivity(intent);
@@ -108,4 +120,5 @@ public class register extends AppCompatActivity {
 
     }
 }
+
 

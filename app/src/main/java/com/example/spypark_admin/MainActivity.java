@@ -8,6 +8,8 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private CardView D1,D2,D3,D4;
@@ -43,13 +45,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             i = new Intent(this, d2.class);
             startActivity(i);
         } else if (id == R.id.d3) {
-            i = new Intent(this, d3.class);
+            i = new Intent(this, allBookings.class);
             startActivity(i);
         } else if (id == R.id.d4) {
-            i = new Intent(this, d4.class);
-            startActivity(i);
+            FirebaseAuth.getInstance().signOut();
+            Intent intent = new Intent(getApplicationContext(), login.class);
+            startActivity(intent);
+            finish();
         }
     }
-
-
 }

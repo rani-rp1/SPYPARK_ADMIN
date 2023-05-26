@@ -32,6 +32,10 @@
             android:name=".register"
             android:exported="false" />
         <activity
+        android:name=".allBookings"
+        android:exported="false" />
+
+        <activity
             android:name=".flashscreen"
             android:exported="true"
             android:theme="@style/Theme.Material3.Light.NoActionBar">
